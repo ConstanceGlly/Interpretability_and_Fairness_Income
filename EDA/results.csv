@@ -1,7 +1,6 @@
 Model; Encoder; Accuracy; Time;
 random forest; OneHotEncoder; 0.86; 2m6;
 random forest; LabelEncoder; 0.86; 20s;
-xgb; LabelEncoder; 0.88;0.5s;
 xgb; LabelEncoder; 0.8759;0.5s;
 xgb; OneHotEncoder; 0.8763;0.6s;
 xgb; OneHotEncoder + Scaler; Accuracy: 0.8775;0.6s;

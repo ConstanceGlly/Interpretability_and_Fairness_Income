@@ -71,3 +71,4 @@ _You will also need to install the requirements.txt package this should be done 
 
 To get additionnal ressources you can refer to this power point : 
 
+https://hecparis-my.sharepoint.com/:p:/r/personal/constance_guelluy_hec_edu/Documents/interpretability%20and%20fairness.pptx?d=w3f241304cb514defbc0f0216921caa19&csf=1&web=1&e=cwm8Md
