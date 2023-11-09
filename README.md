@@ -71,7 +71,7 @@ _You will also need to install the requirements.txt package this should be done 
 
 The script to run our black-box model can be found in scr folder
 
-The plots used to compare the performance interpretability were given by the notebook : 
+The plots used to compare the performance interpretability can be found in this notebook : https://github.com/ConstanceGlly/Interpretability_and_Fairness_Income/blob/main/Notebooks/Performance_interpretability.ipynb
 
 <!-- More ressources -->
 ## Additionnal ressources 
