@@ -27,7 +27,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project aims at building a relevant matching algorithm for dating whilst taking into account key interpretability and fairness stakes.   
+This project aims at creating a relevant algorithm predicting the income threshold from the 1994 US census database whilst taking into account key interpretability and fairness stakes.   
 
 Here are some of the main points we looked at from an interpretability and fairness point of view :
 * race
@@ -65,6 +65,13 @@ _You will also need to install the requirements.txt package this should be done 
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Code Description -->
+## Description
+
+The script to run our black-box model can be found in scr folder
+
+The plots used to compare the performance interpretability were given by the notebook : 
 
 <!-- More ressources -->
 ## Additionnal ressources 
