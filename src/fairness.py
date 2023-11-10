@@ -2,10 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import chi2_contingency
 
-features_of_interest = ['age', 'workclass', 'fnlwgt', 'education', 'educational-num',
-       'marital-status', 'occupation', 'relationship', 'race', 'gender',
-       'capital-gain', 'capital-loss', 'hours-per-week', 'native-country']
-
 def plot_FPDP(df, features_of_interest, save=False, save_path=None):
     """Plot Fairness Partial Dependence Plots
 
@@ -77,3 +73,7 @@ def plot_FPDP(df, features_of_interest, save=False, save_path=None):
 
     plt.tight_layout()
     plt.show()
+
+features_of_interest = ['age', 'workclass', 'fnlwgt', 'education', 'educational-num',
+       'marital-status', 'occupation', 'relationship', 'race', 'gender',
+       'capital-gain', 'capital-loss', 'hours-per-week', 'native-country']
