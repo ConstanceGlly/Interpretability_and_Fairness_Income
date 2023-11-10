@@ -69,9 +69,20 @@ _You will also need to install the requirements.txt package this should be done 
 <!-- Code Description -->
 ## Description
 
+### 1. Interpretability
 The script to run our black-box model can be found in scr folder
 
 The plots used to compare the performance interpretability can be found in this notebook : https://github.com/ConstanceGlly/Interpretability_and_Fairness_Income/blob/main/Notebooks/Performance_interpretability.ipynb
+
+### 2. Fairness
+The script to run the functions of fairness of the model are in the fairness.py file in the src folder.
+These functions are all based on chi-squarred test and include:
+- Statistical parity test
+- Conditional statistical parity
+- Plotting of Fairness Partial Dependant Plots (FPDP)
+
+The plots used in the presentation were computed on the following notebook:
+#TODO
 
 <!-- More ressources -->
 ## Additionnal ressources 
