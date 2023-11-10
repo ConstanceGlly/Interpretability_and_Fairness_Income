@@ -70,7 +70,9 @@ _You will also need to install the requirements.txt package this should be done 
 ## Description
 
 ### 1. Interpretability
-The script to run our black-box model can be found in scr folder
+The script to run our black-box model can be found in scr folder : https://github.com/ConstanceGlly/Interpretability_and_Fairness_Income/tree/main/src
+
+Local iterpretability : https://github.com/ConstanceGlly/Interpretability_and_Fairness_Income/tree/main/STEP_5:6_PLOTS
 
 The plots used to compare the performance interpretability can be found in this notebook : https://github.com/ConstanceGlly/Interpretability_and_Fairness_Income/blob/main/Notebooks/Performance_interpretability.ipynb
 
