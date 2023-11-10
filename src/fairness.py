@@ -2,6 +2,29 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import chi2_contingency
 
+def statistical_parity(df, interest_feature):
+    """Statistical parity chi-squarred test
+
+    Args:
+        df (pandas DataFrame): data with predicted outcomes of the model
+        interest_feature (String): feature on which the test is done (protected attribute)
+    """
+    # Create contingency table
+    contingency_table = pd.crosstab(df[interest_feature], df['prediction'])
+
+    # Chi-squarred test
+    chi2, p, _, _ = chi2_contingency(contingency_table, correction=True)
+
+    # Print results
+    print(f"chi2 = {chi2}")
+    print(f"p_value = {p}")
+    if p < 0.05:
+        print("There is no statistical parity (H0 rejected).")
+    else:
+        print("There is no proof that there is no statistical parity (H0 not rejected).")
+
+
+
 def plot_FPDP(df, features_of_interest, save=False, save_path=None):
     """Plot Fairness Partial Dependence Plots
 
