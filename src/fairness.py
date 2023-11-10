@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import chi2_contingency
 
+
 def statistical_parity(df, interest_feature):
     """Statistical parity chi-squarred test
 
@@ -23,6 +24,61 @@ def statistical_parity(df, interest_feature):
     else:
         print("There is no proof that there is no statistical parity (H0 not rejected).")
 
+
+def conditional_statistical_parity(df, dict_X_features, protected_attribute):
+    """Conditional parity chi-squarred test
+
+    Args:
+        df (pandas DataFrame): data with predicted outcomes of the model
+        dict_X_features (dict): keys are features on which there are subgroups, and values are list (bins)
+        protected_attribute (String): ex. 'gender'
+
+    #TODO:
+    Manage categorical features of interest (no bins)
+    """
+    # Create a DataFrame combining true labels, predicted labels, and protected attributes (Gender), as well as the conditional features
+    results_df = pd.DataFrame({'True_Labels': df["income"], 'Predicted_Labels': df["prediction"], protected_attribute: df[protected_attribute]})
+    for key in dict_X_features.keys():
+        results_df[key] = df[key]
+
+    # Create bins for considering conditional features (creating subgroups)
+    for key, value in dict_X_features.items():
+        results_df[key + '_binned'] = pd.cut(results_df[key], value)
+
+    # Calculate conditional counts for CSP considering conditional features
+    list_groupby = [protected_attributes]
+    for key in dict_X_features.keys():
+        list_groupby.append(key + '_binned')
+    list_groupby.append('Predicted_Labels')
+    csp_counts = results_df.groupby(list_groupby).size().unstack(fill_value=0)
+
+    print(csp_counts)
+
+    # Perform the chi-squared test for each gender group
+    protected_groups = results_df[protected_attribute].unique()
+    chi2_values = {}
+
+    for protected_group in protected_groups:
+        sub_df = csp_counts.loc[protected_group]
+        chi2, p, _, _ = chi2_contingency(sub_df)
+        chi2_values[protected_group] = chi2
+
+    # Calculate the critical value at a given significance level (e.g., 0.05)
+    alpha = 0.05
+    df = (len(csp_counts.columns) - 1) * (len(csp_counts.index) - 1)
+
+    critical_value = chi2_contingency(sub_df, correction=False)[1]
+
+    # Check if the chi-squared statistics for all gender groups are below the critical value
+    csp_satisfied = all(chi2 <= critical_value for chi2 in chi2_values.values())
+
+    print("chi2_values",chi2_values)
+    print("critical_value",critical_value)
+
+    if csp_satisfied:
+        print("There is no statistical parity (H0 rejected).")
+    else:
+        print("There is no proof that there is no statistical parity (H0 not rejected).")
 
 
 def plot_FPDP(df, features_of_interest, save=False, save_path=None):
